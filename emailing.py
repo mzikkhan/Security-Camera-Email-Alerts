@@ -1,10 +1,15 @@
 import smtplib, ssl
 import imghdr
 from email.message import EmailMessage
+import os
+from dotenv import load_dotenv
 
-SENDER = "edrenaline0@gmail.com"
-RECEIVER = "edrenaline0@gmail.com"
-PASSWORD = "fnnk zxuz odnd yqcg"
+# Load environment variables from .env file
+load_dotenv()
+
+SENDER = os.getenv('SENDER_MAIL')
+RECEIVER = os.getenv('RECEIVER_MAIL')
+PASSWORD = os.getenv('PASS')
 
 def send_email(image_path):
     email_message = EmailMessage()
